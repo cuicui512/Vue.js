@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">
+        <div class="input-num">
+            <button @click="sub">-</button>
+            <span v-text="num"></span>
+            <button @click="add">+</button>
+        </div>
+        <img src="http://www.itheima.com/images/logo.png"/>
+    </div>
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app =new Vue({
+            el:"#app",  // el 是挂载点 ; # 是id选择器
+            data:{
+                num:0
+            },
+            methods:{
+                // add递增函数
+                add:function(){  //通过this关键字拿到data内部的数据
+                    if(this.num<10){
+                        //console.log("add")  //浏览器，f12,控制台
+                        this.num++
+                    }
+                    else
+                    alert("达到最大值10！")
+                },
+                // sub递减函数
+                sub:function(){  //通过this关键字拿到data内部的数据
+                    if(this.num>0){
+                        //console.log("sub")  //浏览器，f12, Console控制台
+                        this.num--
+                    }
+                    else
+                    alert("达到最小值0！" ) 
+                }
+            }
+         })
+    </script>
+</body>
+</html>

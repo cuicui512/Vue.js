@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el 挂载点</title>
+</head>
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app" class="app">
+        {{message}}
+        <h2> {{message}} </h2>
+    </div>
+
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app = new Vue({
+            el:"#app",
+             //el:".app",    // .是class选择器
+            //el:"div",       //div 选择器
+            data:{
+             message:" 黑马程序员"
+         }
+       })
+    </script>
+    
+</body>
+</html>

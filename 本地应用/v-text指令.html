@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v- 指令</title>
+</head>
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">  
+        <h2 v-text="message+'！'">西安</h2>    <!-- v-text标签会直接替换所有的文本内容，西安不会显示 -->
+        <h2 v-text="info">西安</h2>
+        <h2>{{message + "!"}}西安</h2>        <!-- {{ }} 只直接替换部分的的文本内容，西安会显示 -->
+    </div>
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app =new Vue({
+            el:"#app",  // el 是挂载点 ; # 是id选择器
+            data:{      // data 是数据对象
+                message:"Hello Vue",
+                info: "Vue标签指令"
+            }
+         })
+    </script>
+</body>
+</html>

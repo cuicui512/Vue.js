@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v- 指令</title>
+</head>
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">  
+        <input type="button" value="v-on指令" v-on:click="doIt">  
+        <input type="button" value="v-on指令简写" @click="doIt">
+        <input type="button" value="v-on双击指令" @dblclick="doIt"> 
+        <h2 @click="changefood">{{food}}</h2>    <!-- 点击调用changefood函数 -->
+    </div>
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app =new Vue({
+            el:"#app",  // el 是挂载点 ; # 是id选择器
+            data:{
+                food:"粗粗香扒饭"
+            },
+            methods:{
+                doIt:function(){
+                    alert("done");
+                },
+                changefood:function(){  //通过this关键字拿到data内部的数据
+                    this.food+="好好吃！"   //调用一次函数，food后面加一个好好吃
+                }
+            }
+         })
+    </script>
+</body>
+</html>

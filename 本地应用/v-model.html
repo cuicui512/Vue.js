@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model 指令</title>
+</head>
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">  
+        <input type="button" value="修改message值" @click="setM">
+        <input type="text" v-model="message" @keyup.enter="getM">   <!--用v-model指令将表单元素和message双向数据绑定-->
+        <h2>{{message}}</h2>
+    </div>
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app =new Vue({
+            el:"#app",  // el 是挂载点 ; # 是id选择器
+            data:{
+                message:"一giao我里giao"
+            },
+            methods:{
+                getM:function(){
+                    alert(this.message);
+                },
+                setM:function(){
+                    this.message="狗皮giao药组合";
+                }
+            }
+            
+         })
+    </script>
+</body>
+</html>

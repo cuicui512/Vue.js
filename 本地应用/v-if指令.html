@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if 指令</title>
+</head>
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">
+        <h2 v-if="temperature>=35">temperature>35啦</h2>
+        <p v-if="isShow">xidian university</p>      <!-- v-if是将当前的dom(<p>标签)直接注释掉 -->
+        <p v-show="isShow">xidian university   v-show</p>   <!-- v-show是将当前的dom(<p>标签)里面的display属性改变 -->
+        <input type="button" value="切换显示" @click="change_isShow">
+    </div>
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app =new Vue({
+            el:"#app",  // el 是挂载点 ; # 是id选择器
+            data: {      // data 是数据对象
+               isShow:false,
+               temperature:40
+            },
+            methods: {
+                change_isShow:function(){ 
+                    this.isShow = !this.isShow ;               
+                }
+            }
+         })
+    </script>
+</body>
+</html>

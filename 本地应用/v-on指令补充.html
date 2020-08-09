@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on 指令补充</title>
+</head>
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">  
+        <input type="button" value="点击我砍一刀" v-on:click="doIt('是兄弟就来砍我，一刀',9999)">  
+       <input type="text" @keyup.enter="sayHi">  <!--keyup是键盘触发事件，点击Enter键的时候触发sayHi函数，不加.enter则点击任意键盘都会触发-->
+    </div>
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app =new Vue({
+            el:"#app",  // el 是挂载点 ; # 是id选择器
+            data:{
+                food:"粗粗扒饭"
+            },
+            methods:{
+                doIt:function(text,num){
+                    alert(text+num);
+                },
+                sayHi:function(){
+                    alert("老铁没毛病");
+                }
+               
+            }
+         })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片切换</title>
+    <link rel="stylesheet" href="picture.css" />
+</head>
+
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="mask">
+        <div class="center">
+            <img :src="imgArr[index]">
+            <!--左箭头图标-->
+            <a href="javascript:void(0)" class="left" v-if="index!=0" @click="prev">
+                <img src="https://yt3.ggpht.com/a/AATXAJxeVjUdPfVKFJ7aluzMwCUJCftmjrWQeh691Q=s48-c-k-c0xffffffff-no-rj-mo" > 
+            </a> 
+            <!--右箭头图标-->
+            <a href="javascript:void(0)" class="right"  v-show="index<imgArr.length-1" @click="next">
+                <img src="https://yt3.ggpht.com/a/AATXAJy1e4K9Dc136juXzai6dSai9SNGVuw6AmXVuIwH=s48-c-k-c0xffffffff-no-rj-mo"> 
+            </a> 
+        </div>
+    </div>    
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var mask =new Vue({
+            el:"#mask",  // el 是挂载点 ; # 是id选择器
+            data:{      // data 是数据对象
+                imgArr:[    // 图片数组
+                     "https://i.ytimg.com/vi/WzLqZ9Rz4RU/hqdefault.jpg",
+                     "http://www.itheima.com/images/logo.png",
+                     "https://lh3.googleusercontent.com/a-/AOh14GgSljZFc6oObsXig07LbETN9kUZYs--XY27gVB2=s88",
+                     "https://yt3.ggpht.com/a/AATXAJyMtUMPxrW58lb-2BhNyl6tgAqHXfJQ1Utap792=s88-c-k-c0xffffffff-no-rj-mo"
+                 ],
+                index:0  // 图片索引
+            },
+            methods:{
+                prev:function(){    //  前一页函数
+                    this.index--;
+                },
+                next:function(){    // 后一页函数
+                    this.index++;
+                }
+             }
+         })
+    </script>
+</body>
+</html>

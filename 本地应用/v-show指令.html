@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-show 指令</title>
+</head>
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">
+        <input type="button" value="切换显示状态" @click="change_isShow" > 
+        <img v-show="isShow" src="ear_phone.jpg" alt="">
+        <img v-show="age>18" src="ear_phone.jpg" alt="">     <!-- 当age不满足条件时第二张图不会显示出来，可以通过定义函数改变age的值 -->   
+    </div>
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app =new Vue({
+            el:"#app",  // el 是挂载点 ; # 是id选择器
+            data: {      // data 是数据对象
+               isShow:false,
+               age:17
+            },
+            methods: {
+                change_isShow:function(){ 
+                    this.isShow = !this.isShow ;               
+                }
+            }
+         })
+    </script>
+</body>
+</html>

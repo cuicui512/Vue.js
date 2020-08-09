@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind 指令</title>
+</head>
+
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">
+        <img v-bind:src="imgSrc" alt="" v-bind:title="imgTitle">
+        <img :src="imgSrc1" alt="" :title="imgTitle + '!'" >   <!-- 简写,支持字符串拼接 -->
+    </div>    
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app =new Vue({
+            el:"#app",  // el 是挂载点 ; # 是id选择器
+            data:{      // data 是数据对象
+                imgSrc:"https://i.ytimg.com/vi/WzLqZ9Rz4RU/hqdefault.jpg",
+                imgSrc1:"http://www.itheima.com/images/logo.png",
+                imgTitle:"This is a picture!"
+            }
+         })
+    </script>
+</body>
+</html>

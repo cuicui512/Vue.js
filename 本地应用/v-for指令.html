@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for 指令</title>
+</head>
+
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">
+        <input type="button" value="添加数据" @click="add">
+        <input type="button" value="移除数据" @click="remove">
+        <ul>
+            <li v-for="item in arr">City: {{item}}</li> <!-- 这个item只是个变量名，可以修改的-->
+            <li v-for="(it,index) in arr">序号： {{index}}</li>  <!-- index是数组里面的序号，从0开始-->
+        </ul>
+        <h2 v-for="item in vegetables" v-bind:title="item.name">    <!--对象数组的数据引用操作-->
+            {{item.name}}
+        </h2>
+    </div>    
+    
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+         var app =new Vue({
+            el:"#app",  // el 是挂载点 ; # 是id选择器
+            data:{      // data 是数据对象
+                arr:["西安","重庆","成都"],
+                vegetables:[
+                    {name:"肉夹馍"},
+                    {name:"火锅"},
+                    {name:"锅盔"}
+                ]
+            },
+            methods:{
+                add:function(){ //添加新的数组元素
+                    this.vegetables.push({name:"快乐水才是真的快乐"});
+                },
+                remove:function(){  //移除最左边的数组元素
+                    this.vegetables.shift();
+                }
+            }
+         })
+    </script>
+</body>
+</html>

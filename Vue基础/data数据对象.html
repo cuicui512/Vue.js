@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data:数据对象</title>
+</head>
+<body>
+    <!-- 实用简洁的*模板语法*把数据渲染到页面上 -->
+    <div id="app">
+        {{message}}
+        <h2> {{school.name}} {{school.mobile_phone}}</h2>
+        <ul>
+            <li>{{campus[0]}}</li>
+            <li>{{campus[1]}}</li>
+        </ul>
+    </div>
+
+    <!-- 导入Vue 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- 创建Vue实例对象，设置el和data属性 -->
+    <script>
+     var app = new Vue({
+           el:"#app",
+           data:{
+                message:" 你好 XDUer！",
+                school:{
+                    name:"XDUer",
+                    mobile_phone:"100000"
+                 },
+                 campus:["长安","雁塔"]   // 数组元素类型
+            }
+         })
+    </script>
+</body>
+</html>
